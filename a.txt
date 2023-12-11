@@ -1,0 +1,19 @@
+public static <T extends PacketListener> void forceMainThread(Packet<T> packet, T listener, ThreadExecutor<?> engine) throws OffThreadException {
+	if (!engine.isOnThread()) {
+		engine.executeSync(() -> {
+			if (listener.isConnectionOpen()) {
+				try {
+					packet.apply(listener);
+				} catch (Exception var3) {
+					if (listener.shouldCrashOnException()) {
+						throw var3;
+					}
+					LOGGER.error((String)"Failed to handle packet {}, suppressing error", (Object)packet, (Object)var3);
+				}
+			} else {
+				LOGGER.debug((String)"Ignoring packet due to disconnection: {}", (Object)packet);
+			}
+		});
+		throw OffThreadException.INSTANCE;
+	}
+}
