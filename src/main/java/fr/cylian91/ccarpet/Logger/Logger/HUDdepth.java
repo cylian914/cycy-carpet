@@ -14,9 +14,7 @@ public class HUDdepth implements HUD {
     public static void onUpdateHUD() {
         if (RegisterLogger.__depth) {
             LoggerRegistry.getLogger("depth").log(() -> {
-                List<Text> mess = new ArrayList<Text>();
-                mess.add(Messenger.s(String.valueOf(ExampleMod.depth)));
-                mess.add(Messenger.s(String.valueOf(ExampleMod.depth)));
+                List<Text> mess = new ArrayList<>();
                 mess.add(Messenger.s(String.valueOf(ExampleMod.depth)));
                 return mess.toArray(new Text[0]);
             });

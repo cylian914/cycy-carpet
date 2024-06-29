@@ -26,11 +26,11 @@ public class DisableMaxMixin {
 
     @Shadow private int depth;
 
-    @Inject(at = @At("HEAD"), method = "enqueue")
+    /*@Inject(at = @At("HEAD"), method = "enqueue")
     private void cycyCarpet$setMaxChainDepth(CallbackInfo ci){
         //if (maxChainDepth!= settings.MaxUpdateChain)
             maxChainDepth=settings.MaxUpdateChain;
-    }
+    }*/
     @Inject(method = "enqueue",at = @At(shift = At.Shift.AFTER,value = "INVOKE",target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
     private void cycyCarpet$exeInEnqueue0(CallbackInfo info){
         sendPending();
@@ -60,10 +60,8 @@ public class DisableMaxMixin {
         sendPending();
     }
     @Inject(method = "enqueue",at = @At(value = "TAIL"),locals = LocalCapture.PRINT)
-    private void cycyCarpet$a(BlockPos pos, ChainRestrictedNeighborUpdater.Entry entry, CallbackInfo ci, boolean bl) { //error can be ignored
+    private void cycyCarpet$a(CallbackInfo ret) { //error can be ignored
         ExampleMod.depth = depth;
-       //ExampleMod.bl = bl;
-       //ExampleMod.bl2 = bl2;
     }
     @Unique
     private void sendPending(){

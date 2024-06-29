@@ -23,7 +23,8 @@ public class ExampleMod implements ModInitializer, CarpetExtension {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static boolean cancel = false;
     public static final Logger LOGGER = LoggerFactory.getLogger("cycys-carpet");
-	public static List Pending=new ArrayList<>();public static ArrayDeque queue=new ArrayDeque();
+	public static List Pending=new ArrayList<>();
+	public static ArrayDeque queue=new ArrayDeque();
 	public static long depth=0;
 	public static boolean bl=false;
 	public static boolean bl2z=false;

@@ -2,5 +2,6 @@
   "carpet.rule.LogUpdateInteration.desc": "Show number of update, see UpdateInterationValue to set value.\n0: disable\n1: actionbar\n2: actionbar + chat",
   "carpet.rule.MaxUpdateChain.desc": "Set max chained neighbor updates at runtime",
   "carpet.rule.UpdateInterationValue.desc": "Set the current iteration on update, put at 2147483641 too see weird things",
-  "carpet.rule.SendSupressingErrorToChat.desc": "Send supression error to chat"
+  "carpet.rule.SendSupressingErrorToChat.desc": "Send supression error to chat",
+  "carpet.rule.DisableCollector.desc":"Disable the update collector (also know as ChainRestrictedNeighborUpdater)"
 }

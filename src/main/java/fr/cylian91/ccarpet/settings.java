@@ -26,5 +26,9 @@ public class settings {
             categories = {COMMAND,"Supression"}
     )
     public static boolean SendSupressingErrorToChat = false;
+    @Rule(
+            categories = {COMMAND,"Update","Supression"}
+    )
+    public static boolean DisableCollector = false;
 
 }
